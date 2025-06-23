@@ -58,11 +58,23 @@ export const Header: React.FC<HeaderProps> = ({
   const handlePopularClick = () => {
     const mostPopularElement = document.querySelector('[data-section="most-popular"]');
     if (mostPopularElement) {
+      // Scroll to show the title by adjusting the offset
       mostPopularElement.scrollIntoView({ 
         behavior: 'smooth',
-        block: 'start'
+        block: 'center'
       });
     }
+  };
+
+  const handleHomeClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setSearchQuery('');
+    setSearchResults([]);
+  };
+
+  const handleLogoClick = () => {
+    // Refresh the page when logo is clicked
+    window.location.reload();
   };
 
   const navItems = ['Home', 'Popular', 'My List'];
@@ -74,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="flex items-center justify-between px-4 md:px-8 py-4">
         <div className="flex items-center space-x-8">
           <button
-            onClick={onLogoClick}
+            onClick={handleLogoClick}
             className="text-red-600 text-2xl font-bold hover:text-red-500 transition-colors"
           >
             PROJECT
@@ -88,7 +100,9 @@ export const Header: React.FC<HeaderProps> = ({
                     ? handleMyListClick 
                     : item === 'Popular' 
                       ? handlePopularClick 
-                      : undefined
+                      : item === 'Home'
+                        ? handleHomeClick
+                        : undefined
                 }
                 className={`text-white hover:text-gray-300 transition-colors text-sm ${
                   index === 0 ? 'font-semibold' : ''

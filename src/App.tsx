@@ -86,9 +86,9 @@ function App() {
   };
 
   const handleLogoClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setSearchQuery('');
-    setSearchResults([]);
+    // This function is no longer needed as we handle it in Header
+    // but keeping it for backward compatibility
+    window.location.reload();
   };
 
   const handleNotificationClick = () => {
