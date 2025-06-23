@@ -88,14 +88,9 @@ export const ContentRow: React.FC<ContentRowProps> = ({
                 key={movie.id}
                 className={`relative flex-shrink-0 w-48 md:w-64 cursor-pointer transition-all duration-300 ${
                   isHovered 
-                    ? `z-30 ${isFirstItem ? 'origin-left' : isLastItem ? 'origin-right' : 'origin-center'}` 
+                    ? `z-30 ${isFirstItem ? 'origin-left' : isLastItem ? 'origin-right' : 'origin-center'} scale-110` 
                     : 'z-10'
                 }`}
-                style={{
-                  transform: isHovered 
-                    ? `scale(1.2) ${isFirstItem ? 'translateX(10%)' : isLastItem ? 'translateX(-10%)' : 'translateX(0)'}`
-                    : 'scale(1) translateX(0)',
-                }}
                 onMouseEnter={() => {
                   setHoveredMovie(movie.id);
                   setHoveredIndex(index);
@@ -106,13 +101,11 @@ export const ContentRow: React.FC<ContentRowProps> = ({
                 }}
                 onClick={() => onMoreInfo(movie)}
               >
-                <div className="relative overflow-hidden rounded-md">
+                <div className="relative overflow-hidden rounded-md transition-all duration-300">
                   <img
                     src={movie.thumbnail}
                     alt={movie.title}
-                    className={`w-full object-cover transition-all duration-300 ${
-                      isHovered ? 'h-48 md:h-64' : 'h-36 md:h-48'
-                    }`}
+                    className="w-full h-36 md:h-48 object-cover"
                   />
                   
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-300 ${
@@ -122,7 +115,7 @@ export const ContentRow: React.FC<ContentRowProps> = ({
                   <div className={`absolute bottom-0 left-0 right-0 p-3 md:p-4 transition-all duration-300 ${
                     isHovered 
                       ? 'translate-y-0 opacity-100' 
-                      : 'translate-y-6 opacity-0'
+                      : 'translate-y-4 opacity-0'
                   }`}>
                     <h3 className="text-white font-semibold text-sm md:text-base mb-2 line-clamp-2 drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9)' }}>
                       {movie.title}
@@ -146,7 +139,7 @@ export const ContentRow: React.FC<ContentRowProps> = ({
                         }}
                         className="bg-white text-black p-2 md:p-2.5 rounded-full hover:bg-white/90 transition-all duration-200 hover:scale-110 shadow-lg"
                       >
-                        <Play size={isHovered ? 18 : 16} fill="currentColor" />
+                        <Play size={16} fill="currentColor" />
                       </button>
                       <button
                         onClick={(e) => {
@@ -162,14 +155,14 @@ export const ContentRow: React.FC<ContentRowProps> = ({
                         }`}
                       >
                         {isMyListRow ? (
-                          <X size={isHovered ? 18 : 16} />
+                          <X size={16} />
                         ) : isInMyList ? (
                           <>
-                            <Plus size={isHovered ? 18 : 16} className="group-hover/button:hidden" />
-                            <X size={isHovered ? 18 : 16} className="hidden group-hover/button:block" />
+                            <Plus size={16} className="group-hover/button:hidden" />
+                            <X size={16} className="hidden group-hover/button:block" />
                           </>
                         ) : (
-                          <Plus size={isHovered ? 18 : 16} />
+                          <Plus size={16} />
                         )}
                       </button>
                       <button
