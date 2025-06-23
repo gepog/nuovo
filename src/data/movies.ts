@@ -578,8 +578,17 @@ export const contentRows: ContentRow[] = [
         backdrop: 'https://images.pexels.com/photos/7991512/pexels-photo-7991512.jpeg?auto=compress&cs=tinysrgb&w=1200',
         likes: 0,
       },
-    ];
-  }
-]
+      {
+        ...movies[0],
+        id: 'practical-8',
+        title: 'Contact Support',
+        description: 'Learn how to reach our support team, what information to provide, and the best ways to get help when you need it.',
+        thumbnail: 'https://images.pexels.com/photos/6896378/pexels-photo-6896378.jpeg?auto=compress&cs=tinysrgb&w=400',
+        backdrop: 'https://images.pexels.com/photos/6896378/pexels-photo-6896378.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        likes: 0,
+      },
+    ],
+  },
+];
 
 export const featuredMovie = movies.find(movie => movie.isFeatured) || movies[0];
