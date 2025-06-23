@@ -512,5 +512,7 @@ export const contentRows: ContentRow[] = [
     ],
   },
   {
+  }
+]
 
 export const featuredMovie = movies.find(movie => movie.isFeatured) || movies[0];
