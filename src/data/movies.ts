@@ -511,39 +511,6 @@ export const contentRows: ContentRow[] = [
       },
     ],
   },
-  {
-    id: 'comedy',
-    title: 'Comedy Shows',
-    movies: (() => {
-      const comedyMovies = movies.filter(movie => movie.genre.includes('Comedy'));
-      while (comedyMovies.length < 8) {
-        comedyMovies.push(...comedyMovies.slice(0, 8 - comedyMovies.length));
-      }
-      return comedyMovies.slice(0, 8);
-    })(),
-  },
-  {
-    id: 'crime',
-    title: 'Crime & Mystery',
-    movies: (() => {
-      const crimeMovies = movies.filter(movie => movie.genre.includes('Crime') || movie.genre.includes('Mystery'));
-      while (crimeMovies.length < 8) {
-        crimeMovies.push(...crimeMovies.slice(0, 8 - crimeMovies.length));
-      }
-      return crimeMovies.slice(0, 8);
-    })(),
-  },
-  {
-    id: 'action',
-    title: 'Action & Adventure',
-    movies: (() => {
-      const actionMovies = movies.filter(movie => movie.genre.includes('Action') || movie.genre.includes('Adventure'));
-      while (actionMovies.length < 8) {
-        actionMovies.push(...actionMovies.slice(0, 8 - actionMovies.length));
-      }
-      return actionMovies.slice(0, 8);
-    })(),
-  },
 ];
 
 export const featuredMovie = movies.find(movie => movie.isFeatured) || movies[0];
