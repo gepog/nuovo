@@ -55,6 +55,16 @@ export const Header: React.FC<HeaderProps> = ({
     }
   };
 
+  const handlePopularClick = () => {
+    const mostPopularElement = document.querySelector('[data-section="most-popular"]');
+    if (mostPopularElement) {
+      mostPopularElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   const navItems = ['Home', 'Popular', 'My List'];
 
   return (
@@ -73,7 +83,13 @@ export const Header: React.FC<HeaderProps> = ({
             {navItems.map((item, index) => (
               <button
                 key={item}
-                onClick={item === 'My List' ? handleMyListClick : undefined}
+                onClick={
+                  item === 'My List' 
+                    ? handleMyListClick 
+                    : item === 'Popular' 
+                      ? handlePopularClick 
+                      : undefined
+                }
                 className={`text-white hover:text-gray-300 transition-colors text-sm ${
                   index === 0 ? 'font-semibold' : ''
                 }`}
