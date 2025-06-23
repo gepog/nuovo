@@ -58,7 +58,27 @@ export const Header: React.FC<HeaderProps> = ({
   const handlePopularClick = () => {
     const mostPopularElement = document.querySelector('[data-section="most-popular"]');
     if (mostPopularElement) {
-      // Scroll to show the title by adjusting the offset
+      // Get the title element within the section
+      const titleElement = mostPopularElement.querySelector('h2');
+      if (titleElement) {
+        // Calculate offset to account for fixed header
+        const headerHeight = 80; // Approximate header height
+        const elementTop = titleElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementTop - headerHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        // Fallback to section scroll if title not found
+        mostPopularElement.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
       mostPopularElement.scrollIntoView({ 
         behavior: 'smooth',
         block: 'center'
