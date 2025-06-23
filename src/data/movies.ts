@@ -578,6 +578,8 @@ export const contentRows: ContentRow[] = [
         backdrop: 'https://images.pexels.com/photos/7991512/pexels-photo-7991512.jpeg?auto=compress&cs=tinysrgb&w=1200',
         likes: 0,
       },
-];
+    ];
+  }
+]
 
 export const featuredMovie = movies.find(movie => movie.isFeatured) || movies[0];
