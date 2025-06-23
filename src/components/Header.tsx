@@ -69,7 +69,6 @@ export const Header: React.FC<HeaderProps> = ({
   const handleHomeClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setSearchQuery('');
-    setSearchResults([]);
   };
 
   const handleLogoClick = () => {
