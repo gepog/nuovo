@@ -80,6 +80,30 @@ export const Header: React.FC<HeaderProps> = ({
     }
   };
 
+  const handlePracticalInfoClick = () => {
+    // Find the RevenueCat section which contains practical information
+    const practicalInfoElements = document.querySelectorAll('h2');
+    let practicalInfoElement = null;
+    
+    practicalInfoElements.forEach(element => {
+      if (element.textContent === 'RevenueCat') {
+        practicalInfoElement = element;
+      }
+    });
+    
+    if (practicalInfoElement) {
+      // Calculate offset to account for fixed header
+      const headerHeight = 80; // Approximate header height
+      const elementTop = practicalInfoElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementTop - headerHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const handleHomeClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setSearchQuery('');
@@ -90,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({
     window.location.reload();
   };
 
-  const navItems = ['Home', 'My List', 'Popular'];
+  const navItems = ['Home', 'My List', 'Popular', 'Practical Information'];
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-black/90 backdrop-blur-md' : 'bg-gradient-to-b from-black/80 to-transparent'
@@ -114,6 +138,8 @@ export const Header: React.FC<HeaderProps> = ({
                       ? handlePopularClick 
                       : item === 'Home'
                         ? handleHomeClick
+                        : item === 'Practical Information'
+                          ? handlePracticalInfoClick
                         : undefined
                 }
                 className={`text-white hover:text-gray-300 transition-colors text-sm ${
