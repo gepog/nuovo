@@ -163,12 +163,20 @@ function App() {
   // Also include custom movies from content rows that are in myList
   const myListMovies = movies.filter(movie => myList.includes(movie.id));
   
-  // Also include custom movies from content rows that are in myList
+  // Get custom movies from content rows that are in myList (avoiding duplicates)
   const customMoviesInMyList: Movie[] = [];
-  updatedContentRows.forEach(row => {
+  const addedIds = new Set(myListMovies.map(m => m.id));
+  
+  contentRows.forEach(row => {
     row.movies.forEach(movie => {
-      if (myList.includes(movie.id) && !movies.find(m => m.id === movie.id)) {
-        customMoviesInMyList.push(movie);
+      if (myList.includes(movie.id) && !addedIds.has(movie.id)) {
+        // Apply current like count to custom movies
+        const updatedMovie = {
+          ...movie,
+          likes: movieLikes[movie.id] || movie.likes || 0
+        };
+        customMoviesInMyList.push(updatedMovie);
+        addedIds.add(movie.id);
       }
     });
   });

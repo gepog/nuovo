@@ -264,17 +264,17 @@ export const getMostLikedMovies = (): Movie[] => {
 export const contentRows: ContentRow[] = [
   {
     id: 'most-liked',
-    title: 'Most Liked',
+    title: 'Most Popular',
     movies: getMostLikedMovies(),
   },
   {
     id: 'trending',
-    title: 'Trending Now',
+    title: 'Practical Information',
     movies: movies.slice(0, 8),
   },
   {
     id: 'originals',
-    title: 'Project Originals',
+    title: 'Bolt.new',
     movies: movies.slice(1, 9),
   },
   {
