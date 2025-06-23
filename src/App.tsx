@@ -137,7 +137,7 @@ function App() {
       // Add custom movies from content rows to the liking system
       safeContentRows.forEach(contentRow => {
         if (contentRow.id !== 'most-liked') {
-          contentRow.movies.forEach(movie => {
+          (contentRow.movies || []).forEach(movie => {
             // Only add if it's not already in the regular movies array
             if (!moviesWithUpdatedLikes.find(m => m.id === movie.id)) {
               const updatedMovie = {
@@ -157,7 +157,7 @@ function App() {
     }
     return {
       ...row,
-      movies: row.movies.map(movie => 
+      movies: (row.movies || []).map(movie => 
         moviesWithUpdatedLikes.find(m => m.id === movie.id) || movie
       )
     };
@@ -171,7 +171,7 @@ function App() {
   const addedIds = new Set(myListMovies.map(m => m.id));
   
   safeContentRows.forEach(row => {
-    row.movies.forEach(movie => {
+    (row.movies || []).forEach(movie => {
       if (myList.includes(movie.id) && !addedIds.has(movie.id)) {
         // Apply current like count to custom movies
         const updatedMovie = {
