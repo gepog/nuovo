@@ -82,43 +82,24 @@ export const Header: React.FC<HeaderProps> = ({
 
   const handlePracticalInfoClick = () => {
     // Find the RevenueCat section which contains practical information
-    // Look for the section with id 'thriller' or title 'RevenueCat'
-    const allSections = document.querySelectorAll('div[class*="px-4"]');
+    const practicalInfoElements = document.querySelectorAll('h2');
     let practicalInfoElement = null;
     
-    // Search through all sections to find the one with RevenueCat title
-    allSections.forEach(section => {
-      const titleElement = section.querySelector('h2');
-      if (titleElement && titleElement.textContent === 'RevenueCat') {
-        practicalInfoElement = titleElement;
+    practicalInfoElements.forEach(element => {
+      if (element.textContent === 'RevenueCat') {
+        practicalInfoElement = element;
       }
     });
     
     if (practicalInfoElement) {
       // Calculate offset to account for fixed header
-      const headerHeight = 100; // Increased header height offset
+      const headerHeight = 80; // Approximate header height
       const elementTop = practicalInfoElement.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementTop - headerHeight;
       
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
-      });
-    } else {
-      // Fallback: try to find by searching for 'thriller' content row
-      const contentRows = document.querySelectorAll('.px-4.md\\:px-8.mb-8');
-      contentRows.forEach((row, index) => {
-        const title = row.querySelector('h2');
-        if (title && title.textContent === 'RevenueCat') {
-          const headerHeight = 100;
-          const elementTop = title.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementTop - headerHeight;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
       });
     }
   };
