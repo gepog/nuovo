@@ -176,6 +176,13 @@ export const ContentRow: React.FC<ContentRowProps> = ({
                         onClick={(e) => {
                           e.stopPropagation();
                           onMoreInfo(movie);
+                        }}
+                      >
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             );
           })}
         </div>
