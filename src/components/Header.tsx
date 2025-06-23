@@ -79,12 +79,6 @@ export const Header: React.FC<HeaderProps> = ({
       }
     }
   };
-      mostPopularElement.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
-      });
-    }
-  };
 
   const handleHomeClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
