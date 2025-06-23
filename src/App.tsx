@@ -269,6 +269,74 @@ function App() {
                 />
               </div>
             ))}
+            
+            {/* Practical Information Section */}
+            <div data-section="practical-info" className="pt-8">
+              <div className="px-4 md:px-8 mb-8">
+                <h2 className="text-white text-xl md:text-2xl font-semibold mb-4">Practical Information</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="bg-gray-800/50 rounded-lg p-6 hover:bg-gray-800/70 transition-colors">
+                    <h3 className="text-white font-semibold text-lg mb-3">Getting Started</h3>
+                    <p className="text-white/70 text-sm mb-4">
+                      Learn how to navigate the platform, create your profile, and start watching your favorite content.
+                    </p>
+                    <button className="text-red-500 hover:text-red-400 text-sm font-medium transition-colors">
+                      Learn More →
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gray-800/50 rounded-lg p-6 hover:bg-gray-800/70 transition-colors">
+                    <h3 className="text-white font-semibold text-lg mb-3">Subscription Plans</h3>
+                    <p className="text-white/70 text-sm mb-4">
+                      Compare our different subscription tiers and find the perfect plan for your viewing needs.
+                    </p>
+                    <button className="text-red-500 hover:text-red-400 text-sm font-medium transition-colors">
+                      View Plans →
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gray-800/50 rounded-lg p-6 hover:bg-gray-800/70 transition-colors">
+                    <h3 className="text-white font-semibold text-lg mb-3">Device Compatibility</h3>
+                    <p className="text-white/70 text-sm mb-4">
+                      Check which devices support our platform and how to set up streaming on your preferred device.
+                    </p>
+                    <button className="text-red-500 hover:text-red-400 text-sm font-medium transition-colors">
+                      Check Devices →
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gray-800/50 rounded-lg p-6 hover:bg-gray-800/70 transition-colors">
+                    <h3 className="text-white font-semibold text-lg mb-3">Parental Controls</h3>
+                    <p className="text-white/70 text-sm mb-4">
+                      Set up parental controls to ensure age-appropriate content for your family members.
+                    </p>
+                    <button className="text-red-500 hover:text-red-400 text-sm font-medium transition-colors">
+                      Setup Controls →
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gray-800/50 rounded-lg p-6 hover:bg-gray-800/70 transition-colors">
+                    <h3 className="text-white font-semibold text-lg mb-3">Download & Offline</h3>
+                    <p className="text-white/70 text-sm mb-4">
+                      Download content for offline viewing and manage your downloaded library effectively.
+                    </p>
+                    <button className="text-red-500 hover:text-red-400 text-sm font-medium transition-colors">
+                      Download Guide →
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gray-800/50 rounded-lg p-6 hover:bg-gray-800/70 transition-colors">
+                    <h3 className="text-white font-semibold text-lg mb-3">Troubleshooting</h3>
+                    <p className="text-white/70 text-sm mb-4">
+                      Find solutions to common issues and get help with technical problems you might encounter.
+                    </p>
+                    <button className="text-red-500 hover:text-red-400 text-sm font-medium transition-colors">
+                      Get Help →
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </>
       )}
