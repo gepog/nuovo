@@ -15,6 +15,9 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import { Movie } from './types';
 
 function App() {
+  // Ensure contentRows is always an array to prevent undefined errors
+  const safeContentRows = contentRows || [];
+  
   const [currentMovie, setCurrentMovie] = useState<Movie | null>(null);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -126,13 +129,13 @@ function App() {
   }));
 
   // Update content rows with current like counts
-  const updatedContentRows = contentRows.map(row => {
+  const updatedContentRows = safeContentRows.map(row => {
     if (row.id === 'most-liked') {
       // Get all movies from regular movies array and custom content rows
       const allMoviesForLiking = [...moviesWithUpdatedLikes];
       
       // Add custom movies from content rows to the liking system
-      contentRows.forEach(contentRow => {
+      safeContentRows.forEach(contentRow => {
         if (contentRow.id !== 'most-liked') {
           contentRow.movies.forEach(movie => {
             // Only add if it's not already in the regular movies array
@@ -167,7 +170,7 @@ function App() {
   const customMoviesInMyList: Movie[] = [];
   const addedIds = new Set(myListMovies.map(m => m.id));
   
-  contentRows.forEach(row => {
+  safeContentRows.forEach(row => {
     row.movies.forEach(movie => {
       if (myList.includes(movie.id) && !addedIds.has(movie.id)) {
         // Apply current like count to custom movies
