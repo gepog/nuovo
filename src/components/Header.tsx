@@ -80,30 +80,6 @@ export const Header: React.FC<HeaderProps> = ({
     }
   };
 
-  const handlePracticalInfoClick = () => {
-    const practicalInfoElement = document.querySelector('[data-section="practical-information"]');
-    if (practicalInfoElement) {
-      // Get the title element within the section
-      const titleElement = practicalInfoElement.querySelector('h2');
-      if (titleElement) {
-        // Calculate offset to account for fixed header
-        const headerHeight = 80; // Approximate header height
-        const elementTop = titleElement.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementTop - headerHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      } else {
-        // Fallback to section scroll if title not found
-        practicalInfoElement.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }
-  };
   const handleHomeClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setSearchQuery('');
@@ -115,6 +91,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   const navItems = ['Home', 'My List', 'Popular', 'Practical Information'];
+  const navItems = ['Home', 'My List', 'Popular'];
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-black/90 backdrop-blur-md' : 'bg-gradient-to-b from-black/80 to-transparent'
@@ -138,8 +115,6 @@ export const Header: React.FC<HeaderProps> = ({
                       ? handlePopularClick 
                       : item === 'Home'
                         ? handleHomeClick
-                        : item === 'Practical Information'
-                          ? handlePracticalInfoClick
                         : undefined
                 }
                 className={`text-white hover:text-gray-300 transition-colors text-sm ${
