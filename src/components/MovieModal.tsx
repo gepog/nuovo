@@ -83,7 +83,7 @@ export const MovieModal: React.FC<MovieModalProps> = ({
                 className="flex items-center justify-center space-x-3 bg-white text-black px-6 py-3 rounded-md hover:bg-white/90 transition-colors font-semibold"
               >
                 <Play size={20} fill="currentColor" />
-                <span>Play</span>
+                <span>Read</span>
               </button>
 
               <button

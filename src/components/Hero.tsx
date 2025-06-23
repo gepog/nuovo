@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ movie, onPlay, onAddToList, onMoreIn
             className="flex items-center justify-center space-x-3 bg-white text-black px-8 py-3 rounded-md hover:bg-white/90 transition-colors font-semibold text-lg"
           >
             <Play size={24} fill="currentColor" />
-            <span>Play</span>
+            <span>Read</span>
           </button>
 
           <button
