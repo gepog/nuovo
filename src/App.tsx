@@ -128,9 +128,28 @@ function App() {
   // Update content rows with current like counts
   const updatedContentRows = contentRows.map(row => {
     if (row.id === 'most-liked') {
-      const mostLiked = [...moviesWithUpdatedLikes]
+      // Get all movies from regular movies array and custom content rows
+      const allMoviesForLiking = [...moviesWithUpdatedLikes];
+      
+      // Add custom movies from content rows to the liking system
+      contentRows.forEach(contentRow => {
+        if (contentRow.id !== 'most-liked') {
+          contentRow.movies.forEach(movie => {
+            // Only add if it's not already in the regular movies array
+            if (!moviesWithUpdatedLikes.find(m => m.id === movie.id)) {
+              const updatedMovie = {
+                ...movie,
+                likes: movieLikes[movie.id] || movie.likes || 0
+              };
+              allMoviesForLiking.push(updatedMovie);
+            }
+          });
+        }
+      });
+      
+      const mostLiked = allMoviesForLiking
         .sort((a, b) => (b.likes || 0) - (a.likes || 0))
-        .slice(0, 8);
+        .slice(0, 12);
       return { ...row, movies: mostLiked };
     }
     return {
