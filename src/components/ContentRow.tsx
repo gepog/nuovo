@@ -88,7 +88,7 @@ export const ContentRow: React.FC<ContentRowProps> = ({
                 key={movie.id}
                 className={`relative flex-shrink-0 w-48 md:w-64 cursor-pointer transition-all duration-300 ${
                   isHovered 
-                    ? `z-30 ${isFirstItem ? 'origin-left' : isLastItem ? 'origin-right' : 'origin-center'} scale-110` 
+                    ? `z-30 ${isFirstItem ? 'origin-left' : isLastItem ? 'origin-right' : 'origin-center'} scale-125` 
                     : 'z-10'
                 }`}
                 onMouseEnter={() => {
