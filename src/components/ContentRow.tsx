@@ -50,7 +50,7 @@ export const ContentRow: React.FC<ContentRowProps> = ({
 
   return (
     <div className="px-4 md:px-8 mb-8">
-      <h2 className="text-white text-xl md:text-2xl font-semibold mb-2">{title}</h2>
+      <h2 className="text-white text-xl md:text-2xl font-semibold">{title}</h2>
       
       <div className="relative group">
         {canScrollLeft && (
@@ -74,7 +74,7 @@ export const ContentRow: React.FC<ContentRowProps> = ({
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex space-x-4 overflow-x-auto overflow-y-visible scrollbar-hide scroll-smooth py-8"
+          className="flex space-x-4 overflow-x-auto overflow-y-visible scrollbar-hide scroll-smooth pt-4 pb-8"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {movies.map((movie, index) => {
