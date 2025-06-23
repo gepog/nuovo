@@ -109,14 +109,10 @@ export const MovieModal: React.FC<MovieModalProps> = ({
         </div>
 
         <div className="p-6">
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="md:col-span-2">
+          <div className="max-w-4xl">
+            <div>
               <div className="flex items-center space-x-4 text-white/90 mb-4">
-                <span className="px-2 py-1 bg-red-600 text-xs font-semibold rounded">
-                  {movie.rating}
-                </span>
                 <span>{movie.year}</span>
-                <span>{movie.duration}</span>
                 <div className="flex items-center space-x-2">
                   <Heart size={16} className="text-red-500" fill="currentColor" />
                   <span className="text-sm font-medium">{currentLikes.toLocaleString()}</span>
@@ -139,29 +135,6 @@ export const MovieModal: React.FC<MovieModalProps> = ({
                   <ThumbsUp size={20} />
                   <span className="text-sm">{isLiked ? 'Unlike' : 'Like'}</span>
                 </button>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-white font-semibold mb-2">Genres</h3>
-                <div className="flex flex-wrap gap-2">
-                  {movie.genre.map((genre) => (
-                    <span
-                      key={genre}
-                      className="px-3 py-1 bg-gray-700 text-white/80 text-sm rounded-full"
-                    >
-                      {genre}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-white font-semibold mb-2">More Like This</h3>
-                <div className="text-white/60 text-sm">
-                  Discover similar content based on your preferences
-                </div>
               </div>
             </div>
           </div>
